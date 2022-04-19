@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Basic Todo App</title>
+</head>
+<body>
+    <h1>Todos</h1>
+
+    <h2> Add Todo</h2>
+    <form action="/todo" method="post">
+        <input type="text" name="text" placeholder="new todo">
+        <input type="submit" value="create new todo">
+    </form>
+    <ul>
+        <% for (todo of todos) { %>
+        
+            <li><%= todo.text %> 
+            
+                <form action="/todo/<%= todo._id %>?_method=delete" method="post">
+                    <input type="submit" value="delete todo">
+                </form>
+            
+            </li>
+        
+        <% } %>
+    </ul>
+    
+</body>
+</html>
